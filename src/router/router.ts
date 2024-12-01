@@ -2,11 +2,11 @@ import { createWebHistory } from "vue-router";
 import { createRouter } from "vue-router";
 
 const routes = [
-  //   {
-  //     path: "/",
-  //     component: () => import("~/App.vue"),
-  //     meta: {},
-  //   },
+  {
+    path: "/",
+    component: () => import("@/views/LandingPage.vue"),
+    meta: {},
+  },
 ];
 
 const router = createRouter({
