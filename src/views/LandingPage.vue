@@ -7,6 +7,6 @@ import JobAdList from "@/components/JobAdList.vue";
 <template>
   <DefaultLayout>
     <LandingPageHeader />
-    <JobAdList />
+    <JobAdList class="mt-10" />
   </DefaultLayout>
 </template>
