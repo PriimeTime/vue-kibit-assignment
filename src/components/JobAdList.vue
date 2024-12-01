@@ -3,6 +3,7 @@ import BaseButton from "@/components/BaseButton.vue";
 import JobAd from "@/components/JobAd.vue";
 import { useJobsStore } from "@/stores/jobs";
 import { computed } from "vue";
+import BaseCard from "./BaseCard.vue";
 
 const jobStore = useJobsStore();
 
@@ -11,7 +12,7 @@ const jobList = computed(() => jobStore.filteredJobs(jobStore.searchTerm));
 
 <template>
   <section class="w-full flex justify-center">
-    <div class="max-w-[40rem] rounded-xl shadow-xl p-10 w-full">
+    <BaseCard>
       <div class="flex justify-between w-full">
         <BaseButton>Refresh</BaseButton>
       </div>
@@ -26,6 +27,6 @@ const jobList = computed(() => jobStore.filteredJobs(jobStore.searchTerm));
           No jobs found.
         </div>
       </div>
-    </div>
+    </BaseCard>
   </section>
 </template>
