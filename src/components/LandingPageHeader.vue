@@ -31,7 +31,7 @@ watch(searchInputValue, () => {
 <template>
   <section class="w-full flex justify-center">
     <BaseCard>
-      <HeaderText>Find the job of your dreams</HeaderText>
+      <HeaderText>Find the job of your dreams!</HeaderText>
       <div class="w-full m-2 flex justify-between">
         <BaseInput
           @keydown="handleKeyDown"

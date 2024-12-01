@@ -1,3 +1,4 @@
+import { useAuthStore } from "@/stores/auth";
 import path from "path";
 import { createWebHistory } from "vue-router";
 import { createRouter } from "vue-router";
@@ -8,6 +9,11 @@ const routes = [
     name: "home",
     component: () => import("@/views/LandingPage.vue"),
     meta: {},
+  },
+  {
+    path: "/my-jobs",
+    component: () => import("@/views/MyJobs.vue"),
+    meta: { requiresAuth: true },
   },
   {
     path: "/login",
@@ -34,6 +40,12 @@ const routes = [
     meta: {},
   },
   {
+    path: "/application-success",
+    name: "application-success",
+    component: () => import("@/views/ApplicationSuccessPage.vue"),
+    meta: {},
+  },
+  {
     path: "/:pathMatch(.*)*",
     name: "not-found",
     component: () => import("@/views/ErrorPage.vue"),
@@ -44,6 +56,17 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
+});
+
+// Navigation guard
+router.beforeEach((to, _, next) => {
+  const authStore = useAuthStore();
+
+  if (to.meta.requiresAuth && !authStore.user) {
+    next({ name: "login" });
+  } else {
+    next();
+  }
 });
 
 export default router;

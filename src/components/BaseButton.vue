@@ -1,12 +1,9 @@
 <script setup lang="ts">
 import { computed } from "vue";
 
-const props = defineProps({
-  flat: {
-    type: Boolean,
-    default: false,
-  },
-});
+const props = defineProps<{
+  flat?: boolean;
+}>();
 
 const emit = defineEmits(["click"]);
 
