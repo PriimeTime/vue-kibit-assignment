@@ -1,6 +1,21 @@
 <script setup lang="ts">
-import BaseButton from "@/components/BaseButton.vue";
+import HeaderButton from "@/components/HeaderButton.vue";
+import { useAuthStore } from "@/stores/auth";
+import { computed } from "vue";
 import { useRouter } from "vue-router";
+
+const authStore = useAuthStore();
+
+const isLoggedIn = computed(() => authStore.user);
+
+const handleAuth = () => {
+  if (isLoggedIn.value) {
+    authStore.logout();
+    router.push("/");
+  } else {
+    router.push("/login");
+  }
+};
 
 const router = useRouter();
 </script>
@@ -14,18 +29,13 @@ const router = useRouter();
       Job Advertisement Plaform
     </div>
     <div class="flex justify-end w-full p-2">
-      <button
-        @click="router.push('/')"
-        class="p-2 w-20 mx-2 rounded-md text-white border-teal-900 border-2 bg-teal-900 flex justify-center items-center whitespace-nowrap"
+      <HeaderButton @click="router.push('/')">Home</HeaderButton>
+      <HeaderButton v-if="isLoggedIn" @click="router.push('/my-jobs')"
+        >My Jobs</HeaderButton
       >
-        Home
-      </button>
-      <button
-        @click="router.push('/login')"
-        class="p-2 w-20 mx-2 rounded-md text-white border-teal-900 border-2 bg-teal-900 flex justify-center items-center"
-      >
-        Login
-      </button>
+      <HeaderButton @click="handleAuth">{{
+        isLoggedIn ? "Logout" : "Login"
+      }}</HeaderButton>
     </div>
   </header>
   <main>

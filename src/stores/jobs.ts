@@ -4,44 +4,9 @@ import type { S } from "vitest/dist/chunks/config.Cy0C388Z.js";
 
 export const useJobsStore = defineStore("jobs", {
   state: () => ({
+    loading: false, // TODO add this to a global loading hook ad create a global loading component
     searchTerm: ref("") as Ref<string>,
-    jobs: [
-      {
-        id: "1",
-        title: "Frontend Developer",
-        description:
-          "We are looking for a frontend developer to join our team.",
-        tags: ["frontend", "developer", "javascript"],
-        created: Date.now(),
-        salary: {
-          amount: 50000,
-          currency: "USD",
-        },
-      },
-      {
-        id: "2",
-        title: "Backend Developer",
-        description: "We are looking for a backend developer to join our team.",
-        tags: ["backend", "developer", "nodejs"],
-        created: Date.now(),
-        salary: {
-          amount: 60000,
-          currency: "USD",
-        },
-      },
-      {
-        id: "3",
-        title: "Fullstack Developer",
-        description:
-          "We are looking for a fullstack developer to join our team.",
-        tags: ["fullstack", "developer", "javascript"],
-        created: Date.now(),
-        salary: {
-          amount: 70000,
-          currency: "USD",
-        },
-      },
-    ] as Job[],
+    jobs: [] as Job[],
   }),
   getters: {
     filteredJobs: (state) => (searchString: string) => {
