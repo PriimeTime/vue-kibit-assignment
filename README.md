@@ -50,6 +50,14 @@ A responsive Vue.js 3 application for creating, managing, and searching job adve
 
 ## Project Setup
 
+### Hosted Version
+
+You can access the application live at: [https://vue-kibit-assignment-anemeth.web.app/](https://vue-kibit-assignment-anemeth.web.app/)
+
+### Prerequisites
+
+- **Node.js**: Version 20.x or higher (Download from [nodejs.org](https://nodejs.org))
+
 ### Install Dependencies
 
 `npm install`
