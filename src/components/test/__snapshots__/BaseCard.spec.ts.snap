@@ -1,0 +1,3 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BaseCard > matches snapshot 1`] = `"<div class="max-w-[40rem] rounded-xl md:shadow-xl p-10 w-full">Snapshot Content</div>"`;

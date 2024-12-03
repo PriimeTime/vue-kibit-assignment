@@ -1,0 +1,5 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BaseInput > matches snapshot for input 1`] = `"<div><input class="border-teal-900 border-2 rounded-lg p-2 w-full focus:outline-none" placeholder="Enter text" value=""></div>"`;
+
+exports[`BaseInput > matches snapshot for textarea 1`] = `"<div><textarea class="border-teal-900 border-2 rounded-lg p-2 w-full focus:outline-none" placeholder="Enter text" value=""></textarea></div>"`;

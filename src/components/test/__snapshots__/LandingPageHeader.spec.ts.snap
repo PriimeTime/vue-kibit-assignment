@@ -1,0 +1,12 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`LandingPageHeader > matches snapshot 1`] = `
+"<section class="w-full flex justify-center">
+  <div class="max-w-[40rem] rounded-xl md:shadow-xl p-10 w-full">
+    <div class="text-3xl font-bold">Find the job of your dreams!</div>
+    <div class="w-full m-2 flex justify-between">
+      <div class="w-full"><input class="border-teal-900 border-2 rounded-lg p-2 w-full focus:outline-none" placeholder="Search for jobs" value=""></div><button class="p-2 min-w-20 rounded-md text-white border-teal-900 border-2 bg-teal-900 hover:text-teal-900 hover:bg-white flex justify-center items-center whitespace-nowrap mx-2">Search</button>
+    </div>
+  </div>
+</section>"
+`;

@@ -1,0 +1,3 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`HeaderButton > matches snapshot 1`] = `"<button class="p-2 w-20 lg:mx-2 rounded-md text-white text-xs md:text-xl border-teal-900 border-2 bg-teal-900 flex justify-center items-center whitespace-nowrap">Click Me</button>"`;
