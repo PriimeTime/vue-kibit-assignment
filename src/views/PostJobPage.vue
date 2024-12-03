@@ -6,7 +6,7 @@ import BaseInput from "@/components/BaseInput.vue";
 import { reactive, ref } from "vue";
 import BaseButton from "@/components/BaseButton.vue";
 import { useJobsStore } from "@/stores/jobs";
-import { createJob } from "@/api/jobsService";
+import { createJobAndBindToUser } from "@/api/jobsService";
 import { convertStringToNumber } from "@/utils/numberHelper";
 import { useRouter } from "vue-router";
 import { bindJobToUser } from "@/api/authService";
@@ -32,15 +32,7 @@ const errors = reactive({
 const postJob = async (job: Job) => {
   jobStore.loading = true;
   try {
-    if (!authStore.user) {
-      throw new Error("User not found");
-    }
-
-    await createJob(job);
-    if (!authStore.user.jobs) {
-      authStore.user.jobs = [];
-    }
-    authStore.user.jobs.push(job.id);
+    await createJobAndBindToUser(job);
     jobStore.jobs.push(job);
     router.push("/my-jobs");
   } catch (error) {
@@ -88,7 +80,6 @@ const handleSubmit = () => {
     },
   };
 
-  bindJobToUser(job.id);
   postJob(job);
 };
 </script>

@@ -15,7 +15,7 @@ export function initializeMockedDb() {
     {
       id: "u3",
       username: "user_company2",
-      type: "admin",
+      type: "employer",
       password: "Abc123",
     },
   ];

@@ -12,10 +12,14 @@ import {
   validateName,
   validatePassword,
 } from "@/utils/validation";
+import { useAuthStore } from "@/stores/auth";
+import { bindJobToUser } from "@/api/jobsService";
 
 const route = useRoute();
 const router = useRouter();
 const jobStore = useJobsStore();
+
+const authStore = useAuthStore();
 
 const name = ref("");
 const email = ref("");
@@ -45,7 +49,9 @@ const handleSubmitApplication = () => {
     return;
   }
 
-  // TODO: submit application to backend
+  if (authStore.user?.type === "applicant") {
+    bindJobToUser(job.id);
+  }
 
   router.push("/application-success");
 };
@@ -54,7 +60,7 @@ const handleSubmitApplication = () => {
 <template>
   <DefaultLayout>
     <section class="w-full flex justify-center items-center mt-10">
-      <BaseCard class="p-6 shadow-lg">
+      <BaseCard class="p-6 md:shadow-lg">
         <div v-if="job" class="space-y-4">
           <HeaderText class="text-2xl font-bold text-gray-800 text-center">
             Application as {{ job.title }}

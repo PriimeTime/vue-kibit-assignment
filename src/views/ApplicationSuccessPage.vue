@@ -11,7 +11,7 @@ const router = useRouter();
 <template>
   <DefaultLayout>
     <section class="w-full flex justify-center items-center mt-10">
-      <BaseCard class="p-6 shadow">
+      <BaseCard class="p-6 md:shadow">
         <div class="space-y-4">
           <HeaderText class="text-2xl font-bold text-gray-800 text-center">
             Your application has been submitted successfully!

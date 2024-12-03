@@ -6,9 +6,8 @@ import BaseButton from "@/components/BaseButton.vue";
 import { useAuthStore } from "@/stores/auth";
 import { useRouter } from "vue-router";
 import { computed, onMounted, ref } from "vue";
-import { deleteJob, fetchJobs } from "@/api/jobsService";
+import { deleteJobAndUnbindFromUser, fetchJobs } from "@/api/jobsService";
 import MyJobAd from "@/components/MyJobAd.vue";
-import { removeJobFromUser } from "@/api/authService";
 import { useJobsStore } from "@/stores/jobs";
 
 const authStore = useAuthStore();
@@ -22,8 +21,7 @@ const myJobs = computed(() => {
 });
 
 const handleRemoveJob = async (jobId: string) => {
-  removeJobFromUser(jobId);
-  deleteJob(jobId);
+  await deleteJobAndUnbindFromUser(jobId);
   jobStore.jobs = jobStore.jobs.filter((job: Job) => job.id !== jobId);
 };
 
@@ -57,11 +55,17 @@ onMounted(async () => {
         </div>
         <div v-else>
           <MyJobAd
+            v-if="myJobs.length > 0"
             v-for="job in myJobs"
             :job="job"
             class="m-4"
-            @delete="handleRemoveJob"
           ></MyJobAd>
+          <div v-else>
+            <div class="flex text-2xl justify-center items-center">
+              You have not applied for any jobs yet...
+            </div>
+          </div>
+        </div>
       </BaseCard>
     </section>
   </DefaultLayout>

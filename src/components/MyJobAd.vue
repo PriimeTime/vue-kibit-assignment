@@ -16,7 +16,7 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <div class="border-2 border-black rounded-xl p-6">
+  <div v-if="job" class="border-2 border-black rounded-xl p-6">
     <HeaderText>{{ props.job.title }}</HeaderText>
     <div class="text-lg">{{ props.job.description }}</div>
     <div class="flex flex-col justify-between my-4">
@@ -35,9 +35,12 @@ const emit = defineEmits<{
     <div v-if="authStore.user?.type === 'employer'" class="flex justify-end">
       <BaseButton
         @click="() => emit('delete', props.job.id)"
-        class="bg-red-500 border-red-500 hover:text-red-500"
+        class="bg-red-600 border-red-600 hover:text-red-600"
         >Delete</BaseButton
       >
     </div>
+  </div>
+  <div v-else>
+    <HeaderText>Job not found</HeaderText>
   </div>
 </template>
