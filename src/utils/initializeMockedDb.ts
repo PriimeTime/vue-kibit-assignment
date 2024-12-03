@@ -12,6 +12,12 @@ export function initializeMockedDb() {
       type: "applicant",
       password: "Test1234",
     },
+    {
+      id: "u3",
+      username: "user_company2",
+      type: "employer",
+      password: "Abc123",
+    },
   ];
 
   if (!localStorage.getItem("users")) {

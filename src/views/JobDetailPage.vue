@@ -19,7 +19,7 @@ const job = jobStore.jobs.filter((job) => job.id === route.params.id)[0];
 <template>
   <DefaultLayout>
     <section class="w-full flex justify-center items-center mt-10">
-      <BaseCard class="p-6 shadow-lg">
+      <BaseCard class="p-6 md:shadow-lg">
         <div v-if="job" class="space-y-4">
           <HeaderText class="text-2xl font-bold text-gray-800">{{
             job.title

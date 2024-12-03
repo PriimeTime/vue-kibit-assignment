@@ -1,5 +1,4 @@
 import { useAuthStore } from "@/stores/auth";
-import path from "path";
 import { createWebHistory } from "vue-router";
 import { createRouter } from "vue-router";
 
@@ -44,6 +43,12 @@ const routes = [
     name: "application-success",
     component: () => import("@/views/ApplicationSuccessPage.vue"),
     meta: {},
+  },
+  {
+    path: "/post-job",
+    name: "post-job",
+    component: () => import("@/views/PostJobPage.vue"),
+    meta: { requiresAuth: true },
   },
   {
     path: "/:pathMatch(.*)*",

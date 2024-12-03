@@ -66,7 +66,9 @@ const handleLogin = async () => {
             placeholder="Password"
             v-model="password"
           />
-          <p v-if="errors.name" class="text-red-600">{{ errors.password }}</p>
+          <p v-if="errors.password" class="text-red-600">
+            {{ errors.password }}
+          </p>
           <div class="flex max-h-14 w-full">
             <BaseButton class="my-2 mr-10" @click="handleLogin"
               >Login</BaseButton
